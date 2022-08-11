@@ -7,17 +7,16 @@ function Login() {
     password: "admin123"
   }
   
-  const [user, setUser] = useState({name:"", email:"", password:""})});
+  const [user, setUser] = useState({name:"", email:"", password:""});
   const [error, setError] = useState("");
 
 
-  const Login = details => {
+  const LoginDetails = details => {
     console.log(details);
+   
   }
-
-  return (
-    <div>Login</div>
-  )
-}
-
+ return (
+      <div>Login</div>
+    )
+ }
 export default Login
