@@ -57,6 +57,8 @@ import ScrollToTop from './Element/ScrollToTop';
 import Loginpage2 from './Pages/Loginpage2';
 import AuthenticatedRoute from '../services/AuthenticatedRoute';
 import CompanySeeComment from './Pages/CompanySeeComment';
+import LanguageCreate from './Pages/Langauge/LanguageCreate';
+import LanguageList from './Pages/Langauge/LanguageList';
 const Markup = () => {
   return (
     <>
@@ -81,6 +83,10 @@ const Markup = () => {
             path="/jobs-saved-jobs"
             component={Jobsavedjobs}
           />
+
+          <AuthenticatedRoute path="/languages/create" component={LanguageCreate} />
+          <AuthenticatedRoute path="/languages" component={LanguageList} />
+          
           <AuthenticatedRoute
             path="/jobs-cv-manager"
             component={Jobcvmanager}

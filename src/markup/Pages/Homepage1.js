@@ -9,168 +9,61 @@ import Featureblog from '../Element/Featureblog';
 import Jobsection from '../Element/Jobsection';
 import Owltestimonial from '../Element/Owlblog1';
 import { useSelector } from 'react-redux';
+import MaterialTable from "material-table";
+import AddBox from '@material-ui/icons/AddBox';
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import Check from '@material-ui/icons/Check';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import Clear from '@material-ui/icons/Clear';
+import DeleteOutline from '@material-ui/icons/DeleteOutline';
+import Edit from '@material-ui/icons/Edit';
+import FilterList from '@material-ui/icons/FilterList';
+import FirstPage from '@material-ui/icons/FirstPage';
+import LastPage from '@material-ui/icons/LastPage';
+import Remove from '@material-ui/icons/Remove';
+import SaveAlt from '@material-ui/icons/SaveAlt';
+import Search from '@material-ui/icons/Search';
+import ViewColumn from '@material-ui/icons/ViewColumn';
+import axios from 'axios'
+import Alert from '@material-ui/lab/Alert';
+import Grid from '@material-ui/core/Grid'
+import { forwardRef } from 'react';
+
 
 //Images
 var bnr2 = require('./../../images/background/bg4.jpg');
 var bnr3 = require('./../../images/lines.png');
 
+const api = axios.create({
+  baseURL: `https://spring-service-backend.herokuapp.com/api/v1.0/`
+})
+
+const tableIcons = {
+  Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+  Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+  Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+  Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
+  DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+  Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
+  Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
+  Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
+  FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+  LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+  NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+  PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+  ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+  Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+  SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
+  ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
+  ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+};
+
 function Homepage() {
   return (
     <div className="page-wraper">
       <Header />
-      <div className="page-content">
-        <IndexBanner />
-        <div className="section-full job-categories content-inner-2 bg-white">
-          <div className="container">
-            <div className="section-head d-flex head-counter clearfix">
-              <div className="mr-auto">
-                <h2 className="m-b5">Popular Categories</h2>
-                <h6 className="fw3">20+ Catetories work wating for you</h6>
-              </div>
-              <div className="head-counter-bx">
-                <h2 className="m-b5 counter">
-                  <CountUp end={1800} duration={5} />
-                </h2>
-                <h6 className="fw3">Jobs Posted</h6>
-              </div>
-              <div className="head-counter-bx">
-                <h2 className="m-b5 counter">
-                  <CountUp end={4500} duration={5} />
-                </h2>
-                <h6 className="fw3">Tasks Posted</h6>
-              </div>
-              <div className="head-counter-bx">
-                <h2 className="m-b5 counter">
-                  <CountUp end={1500} duration={5} />
-                </h2>
-                <h6 className="fw3">Freelancers</h6>
-              </div>
-            </div>
-            <Jobcategories />
-          </div>
-        </div>
-        {/* <Featureblog /> */}
-        <Jobsection />
-        <div
-          className="section-full p-tb70 overlay-black-dark text-white text-center bg-img-fix"
-          style={{ backgroundImage: 'url(' + bnr2 + ')' }}
-        >
-          <div className="container">
-            <div className="section-head text-center text-white">
-              <h2 className="m-b5">Testimonials</h2>
-              <h5 className="fw4">Few words from candidates</h5>
-            </div>
-            <Owltestimonial />
-          </div>
-        </div>
-        <div
-          className="section-full content-inner-2 overlay-white-middle"
-          style={{
-            backgroundImage: 'url( ' + bnr3 + ')',
-            backgroundPosition: 'bottom',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '100%',
-          }}
-        >
-          <div className="container">
-            <div className="section-head text-black text-center">
-              <h2 className="m-b0">Membership Plans</h2>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy.
-              </p>
-            </div>
-            <div className="section-content box-sort-in button-example m-t80">
-              <div className="pricingtable-row">
-                <div className="row max-w1000 m-auto">
-                  <div className="col-sm-12 col-md-4 col-lg-4 p-lr0">
-                    <div className="pricingtable-wrapper style2 bg-white">
-                      <div className="pricingtable-inner">
-                        <div className="pricingtable-price">
-                          <h4 className="font-weight-300 m-t10 m-b0">Basic</h4>
-                          <div className="pricingtable-bx">
-                            <span>Free</span>
-                          </div>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet adipiscing elit sed do
-                          eiusmod tempors labore et dolore magna siad enim
-                          aliqua
-                        </p>
-                        <div className="m-t20">
-                          <Link
-                            to={'/register'}
-                            className="site-button radius-xl"
-                          >
-                            <span className="p-lr30">Sign Up</span>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-12 col-md-4 col-lg-4 p-lr0">
-                    <div className="pricingtable-wrapper style2 bg-primary text-white active">
-                      <div className="pricingtable-inner">
-                        <div className="pricingtable-price">
-                          <h4 className="font-weight-300 m-t10 m-b0">
-                            Professional
-                          </h4>
-                          <div className="pricingtable-bx">
-                            {' '}
-                            $ <span>29</span> / Per Installation{' '}
-                          </div>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet adipiscing elit sed do
-                          eiusmod tempors labore et dolore magna siad enim
-                          aliqua
-                        </p>
-                        <div className="m-t20">
-                          <Link
-                            to={'/register'}
-                            className="site-button white radius-xl"
-                          >
-                            <span className="text-primary p-lr30">Sign Up</span>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-12 col-md-4 col-lg-4 p-lr0">
-                    <div className="pricingtable-wrapper style2 bg-white">
-                      <div className="pricingtable-inner">
-                        <div className="pricingtable-price">
-                          <h4 className="font-weight-300 m-t10 m-b0">
-                            Extended
-                          </h4>
-                          <div className="pricingtable-bx">
-                            {' '}
-                            $ <span>29</span> / Per Installation{' '}
-                          </div>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet adipiscing elit sed do
-                          eiusmod tempors labore et dolore magna siad enim
-                          aliqua
-                        </p>
-                        <div className="m-t20">
-                          <Link
-                            to={'/register'}
-                            className="site-button radius-xl"
-                          >
-                            <span className="p-lr30">Sign Up</span>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Footer />
+   
     </div>
   );
 }

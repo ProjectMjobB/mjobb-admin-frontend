@@ -2,7 +2,7 @@ import axios from 'axios';
 import { store } from '../store/store';
 
 const axiosInstance = axios.create({
-  baseURL: `https://spring-service-backend.herokuapp.com/swagger-ui/`,
+  baseURL: `https://spring-service-backend.herokuapp.com`,
 });
 
 axiosInstance.interceptors.request.use((config) => {

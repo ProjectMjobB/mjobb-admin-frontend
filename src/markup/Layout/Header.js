@@ -109,9 +109,9 @@ const Header = (props) => {
                 </div>
                 <ul className="nav navbar-nav">
                   <li className="">
-                    <Link to={'home'}>
+                    <Link to={'/languages'}>
                       {' '}
-                      Home <i className="dez-page"></i>
+                      Languages <i className="dez-page"></i>
                     </Link>
                     {/* <ul className="sub-menu">
 												<li><Link to={"./"} className="dez-page">Home 1</Link></li>
