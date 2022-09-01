@@ -120,31 +120,25 @@ const Header = (props) => {
                   </li>
                   <li>
                     <Link to={'/browse-job-filter-grid'} className="dez-page">
-                      Jobs
+                      Tags
                     </Link>
                   </li>
                   <li>
                     <Link to={'/about-us'} className="dez-page">
-                      About Us
+                     Job Types
                     </Link>
                   </li>
-                  {props.userRoles === 'ROLE_COMPANY' ? (
-                    <li>
-                      <Link to={'/company-profile'} className="dez-page">
-                        Company Profile
-                      </Link>
-                    </li>
-                  ) : (
+            
                     <li>
                       <Link to={'/jobs-profile'} className="dez-page">
-                        My Profile
+                        Job Types
                       </Link>
                     </li>
-                  )}
+        
 
                   <li>
                     <Link to={'/company-post-jobs'} className="dez-page">
-                      Post A Jobs
+                      Users
                     </Link>
                   </li>
                   {/* <li>
